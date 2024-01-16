@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://b7rdf2a44st07"]
+[gd_scene load_steps=57 format=3 uid="uid://b7rdf2a44st07"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_tu6ix"]
 [ext_resource type="Texture2D" uid="uid://ds6ei4g8eg8dv" path="res://art/characters/player.png" id="2_skl1c"]
@@ -416,6 +416,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hcy7w"]
 radius = 4.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wcbxo"]
+radius = 20.025
+
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_tu6ix")
@@ -430,5 +433,17 @@ shape = SubResource("CircleShape2D_hcy7w")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+limit_smoothed = true
+rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Direction" type="Marker2D" parent="."]
+
+[node name="InteractableFinder" type="Area2D" parent="Direction"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/InteractableFinder"]
+position = Vector2(0, 9)
+shape = SubResource("CircleShape2D_wcbxo")

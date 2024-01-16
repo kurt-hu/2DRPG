@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5hwogxjfalx1"]
+[gd_scene load_steps=10 format=3 uid="uid://b5hwogxjfalx1"]
 
 [ext_resource type="Texture2D" uid="uid://dol446wch43y8" path="res://art/tilesets/grass.png" id="1_rr1i1"]
 [ext_resource type="Texture2D" uid="uid://1kqvqlyr2epa" path="res://art/tilesets/plains.png" id="2_s02ly"]
 [ext_resource type="Texture2D" uid="uid://dgrn766tw8v2p" path="res://art/objects/objects.png" id="3_miam1"]
 [ext_resource type="PackedScene" uid="uid://b7rdf2a44st07" path="res://scenes/player.tscn" id="4_qae1j"]
+[ext_resource type="PackedScene" uid="uid://0j71m1qgq6em" path="res://scenes/npc_sample.tscn" id="5_pttid"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wqbm3"]
 texture = ExtResource("1_rr1i1")
@@ -230,3 +231,6 @@ layer_1/tile_data = PackedInt32Array(589828, 2, 5, 196613, 2, 5, 589833, 655362,
 
 [node name="player" parent="TileMap" instance=ExtResource("4_qae1j")]
 position = Vector2(125, 112)
+
+[node name="npc_sample" parent="." instance=ExtResource("5_pttid")]
+position = Vector2(185, 46)

@@ -3,6 +3,8 @@ extends CharacterBody2D
 const SPEED = 100.0
 var current_dir = "none"
 
+@onready var interactable_finder: Area2D = $Direction/InteractableFinder
+
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
 
@@ -25,6 +27,13 @@ func player_movement(delta):
 	if Input.is_action_pressed("ui_left") or Input.is_key_pressed(KEY_A):
 		current_dir = "left"
 		dx -= SPEED
+	if Input.is_action_just_pressed("interact"):
+		var interactables = interactable_finder.get_overlapping_areas()
+		if interactables.size() > 0:
+			interactables[0].action()
+			dx = 0
+			dy = 0
+
 	
 	velocity.x = dx
 	velocity.y = dy
